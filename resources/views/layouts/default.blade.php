@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>@yield('title', 'Fzumap App') - 福大地图</title>
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   </head>
   <body>
 
