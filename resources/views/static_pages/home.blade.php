@@ -10,7 +10,7 @@
       在这里可以管理福大地图 App的后端用户。
     </p>
     <p>
-      <a class="btn btn-lg btn-success" href="#" role="button">创建你的登录用户</a>
+      <a class="btn btn-lg btn-success" href="{{ route('signup') }}" role="button">创建你的登录用户</a>
     </p>
   </div>
 @stop
