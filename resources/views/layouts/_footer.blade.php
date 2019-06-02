@@ -1,10 +1,10 @@
 <footer class="footer">
   <img class="brand-icon" src="https://iocaffcdn.phphub.org/uploads/sites/KDiyAbV0hj1ytHpRTOlVpucbLebonxeX.png">
   <a href="https://learnku.com/laravel/courses" target=_blank>
-    进入你的福大之旅吧~
+    开始你的福大之旅吧~
   </a>
 
   <div class="float-right">
-    <a href="/about" >关于</a>
+    <a href="{{ route('about') }}" >关于</a>
   </div>
 </footer>
