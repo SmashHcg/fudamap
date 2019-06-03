@@ -17,10 +17,10 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['name' => $request->route('name'), 'password' => $request->route('password')])) {
             // 认证通过...
-            echo 'success';
+            return response()->json(['msg' => 'success']);
         }
         else{
-            echo 'failed';
+            return response()->json(['msg' => 'failed']);
         }
     }
 }
