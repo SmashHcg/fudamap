@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Resources\UserCollection;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,3 +16,8 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/users/{id}', 'UserController@show');
+Route::get('/users', function () {
+    return new UserCollection(User::all());
+});
+//登录用户接口认证
+Route::get('/login/{name}/{password}', 'LoginController@authenticate');
