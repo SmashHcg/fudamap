@@ -19,12 +19,12 @@ class LoginController extends Controller
 
         $password = $request->input('password');
 
-        if (Auth::attempt(['name' => $name, 'password' => $request->input('password')])) {
+        if (Auth::attempt(['name' => $name, 'password' => $password])) {
             // 认证通过...
-            return response()->json(['msg' => 'success', $name]);
+            return response()->json(['msg' => 'success','account' => $name]);
         }
         else{
-            return response()->json(['msg' => 'failed' , $name]);
+            return response()->json(['msg' => 'failed' , 'account' => $name]);
         }
     }
 }
