@@ -15,12 +15,16 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        if (Auth::attempt(['name' => $request->input('account'), 'password' => $request->input('password')])) {
+        $name = $request->input('name');
+
+        $password = $request->input('password');
+
+        if (Auth::attempt(['name' => $name, 'password' => $request->input('password')])) {
             // 认证通过...
-            return response()->json(['msg' => 'success']);
+            return response()->json(['msg' => 'success', $name]);
         }
         else{
-            return response()->json(['msg' => 'failed']);
+            return response()->json(['msg' => 'failed' , $name]);
         }
     }
 }
