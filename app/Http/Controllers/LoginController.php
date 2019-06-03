@@ -15,7 +15,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        if (Auth::attempt(['name' => $request->route('name'), 'password' => $request->route('password')])) {
+        if (Auth::attempt(['name' => $request->input('account'), 'password' => $request->input('password')])) {
             // 认证通过...
             return response()->json(['msg' => 'success']);
         }

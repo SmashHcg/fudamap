@@ -20,4 +20,4 @@ Route::get('/users', function () {
     return new UserCollection(User::all());
 });
 //登录用户接口认证
-Route::get('/login/{name}/{password}', 'LoginController@authenticate');
+Route::get('/login', 'LoginController@authenticate');
