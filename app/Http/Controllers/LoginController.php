@@ -15,7 +15,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        $name = $request->input('name');
+        $name = $request->input('account');
 
         $password = $request->input('password');
 
