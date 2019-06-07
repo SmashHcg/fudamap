@@ -28,3 +28,8 @@ Route::get('/spots/{id}', 'SpotController@show');
 Route::post('/spots', function () {
     return new SpotCollection(Spot::all());
 });
+//路径界面
+Route::post('/path', 'FavoriteController@insert');
+Route::get('/#',function () {
+    return new FavoriteCollection(Favorite::all());
+});
