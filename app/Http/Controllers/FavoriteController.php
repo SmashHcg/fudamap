@@ -10,20 +10,37 @@ class FavoriteController extends Controller
 {
     public function insert(Request $request)
     {
-        DB::table('spots')->insert(
-            [
-                'spot_name' => '东三教学楼',
-                'latitude' => 177.364,
-                'longitude' => 172.456,
-            ]
-        );
+        $vehicle = $request->input('mode');
+        $time = $request->input('time');
+        $departName = $request->input('beginLocation');
+        $destinationName = $request->input('endLocation');
+        $usingTime = $request->input('takeTime');
+        $distance = $request->input('distance');
+        $user_name = $request->input('userAccount');
+        $departLatitude = $request->input('beginLatitude');
+        $departLongitude = $request->input('beginLogitude');
+        $destinationLaitude = $request->input('endLatitude');
+        $destinationLongitude = $request->input('endLogitude');
 
-        DB::table('spots')->insert(
-            [
-                'spot_name' => '东二教学楼',
-                'latitude' => 157.364,
-                'longitude' => 152.456,
-            ]
-        );
+        $add = DB::table('favorites')->insert([
+            'user_name' => $user_name,
+            'destinationName' => $destinationName,
+            'departName' => $departName,
+            'destinationLongitude' => $destinationLongitude,
+            'destinationLaitude' => $destinationLaitude,
+            'departLongitude' => $departLongitude,
+            'departLatitude' => $departLatitude,
+            'usingTime' => $usingTime,
+            'time' => $time,
+            'vehicle' => $vehicle,
+            'distance' => $distance
+        ]);
+
+        if($add) {
+            return response()->json(['msg' => 'success']);
+        }
+        else {
+            return response()->json(['msg' => 'failed']);
+        }
     }
 }
