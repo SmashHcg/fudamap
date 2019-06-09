@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Favorite;
+use App\Models\User;
+use App\Http\Resources\Favorite as FavoriteResource;
+use App\Http\Resources\FavoriteCollection;
 
 class FavoriteController extends Controller
 {
@@ -42,5 +45,18 @@ class FavoriteController extends Controller
         else {
             return response()->json(['msg' => 'failed']);
         }
+    }
+
+    public function show(Request $request)
+    {
+        $count = User::where('name', '=', Input::get('account'));
+
+        $name = $request->input('account');
+
+        /*return new FavoriteCollection(
+            Favorite::where('user_name', $name)
+                    ->orderBy('favorite_id')
+                    ->get()
+                );*/
     }
 }

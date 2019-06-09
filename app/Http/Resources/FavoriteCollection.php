@@ -14,7 +14,9 @@ class FavoriteCollection extends ResourceCollection
      */
     public function toArray($request)
     {
+        $count = User::where('name', '=', Input::get('account'));
         return [
+            'recordNum' => $count,
             'data' => $this->collection,
             ];
     }
