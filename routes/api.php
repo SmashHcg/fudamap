@@ -30,4 +30,4 @@ Route::post('/spots', function () {
 });
 //路径界面
 Route::post('/path', 'FavoriteController@insert');
-Route::get('/favorites', 'FavoriteController@show');
+Route::post('/favorites', 'FavoriteController@show');
