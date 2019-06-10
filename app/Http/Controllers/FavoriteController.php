@@ -22,7 +22,7 @@ class FavoriteController extends Controller
         $user_name = $request->input('userAccount');
         $departLatitude = $request->input('beginLatitude');
         $departLongitude = $request->input('beginLogitude');
-        $destinationLaitude = $request->input('endLatitude');
+        $destinationLatitude = $request->input('endLatitude');
         $destinationLongitude = $request->input('endLogitude');
 
         $add = DB::table('favorites')->insert([
@@ -30,7 +30,7 @@ class FavoriteController extends Controller
             'destinationName' => $destinationName,
             'departName' => $departName,
             'destinationLongitude' => $destinationLongitude,
-            'destinationLaitude' => $destinationLaitude,
+            'destinationLatitude' => $destinationLatitude,
             'departLongitude' => $departLongitude,
             'departLatitude' => $departLatitude,
             'usingTime' => $usingTime,
@@ -49,14 +49,12 @@ class FavoriteController extends Controller
 
     public function show(Request $request)
     {
-        $count = User::where('name', '=', Input::get('account'));
-
         $name = $request->input('account');
 
-        /*return new FavoriteCollection(
+        return new FavoriteCollection(
             Favorite::where('user_name', $name)
                     ->orderBy('favorite_id')
                     ->get()
-                );*/
+                );
     }
 }

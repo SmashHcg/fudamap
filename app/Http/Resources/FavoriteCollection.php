@@ -14,10 +14,12 @@ class FavoriteCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        $count = User::where('name', '=', Input::get('account'));
+        $account = $request->input('account');
+
         return [
-            'recordNum' => $count,
-            'data' => $this->collection,
+            'account' => $account,
+            'recordNum' => $this->collection->count(),
+            'record' => $this->collection,
             ];
     }
 }

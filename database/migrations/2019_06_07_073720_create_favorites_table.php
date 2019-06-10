@@ -19,7 +19,7 @@ class CreateFavoritesTable extends Migration
             $table->string('destinationName');  //终点位置名
             $table->string('departName');       //起始位置名
             $table->double('destinationLongitude');  //终点经度
-            $table->double('destinationLaitude');       //终点纬度
+            $table->double('destinationLatitude');       //终点纬度
             $table->double('departLongitude');  //起始经度
             $table->double('departLatitude');  //起始纬度
             $table->integer('usingTime');  //使用时间
