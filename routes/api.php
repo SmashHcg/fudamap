@@ -31,3 +31,4 @@ Route::post('/spots', function () {
 //路径界面
 Route::post('/path', 'FavoriteController@insert');
 Route::post('/favorites', 'FavoriteController@show');
+Route::post('/favorites/delete', 'FavoriteController@delete');

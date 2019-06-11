@@ -57,4 +57,19 @@ class FavoriteController extends Controller
                     ->get()
                 );
     }
+
+    public function delete(Request $request)
+    {
+        $name = $request->input('account');
+
+        $favoriteId = $request->input('favoriteId');
+
+        DB::table('favorites')->where('favorite_id', '=', $favoriteId)->delete();
+
+        return new FavoriteCollection(
+            Favorite::where('user_name', $name)
+                    ->orderBy('favorite_id')
+                    ->get()
+                );
+    }
 }
