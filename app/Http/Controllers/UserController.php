@@ -14,25 +14,4 @@ class UserController extends Controller
     {
         return new UserResource(User::find($id));
     }
-
-    public function pass_reset(Request $request)
-    {
-        $account = $request->input('userAccount');
-
-        $oldPassword = $request->input('oldPassword');
-
-        $newPassword = $request->input('newPassword');
-
-        if (Auth::attempt(['name' => $account, 'password' => $oldPassword])) {
-            // 认证通过...
-            DB::table('users')
-            ->where('name', $account)
-            ->update(['password' => $newPassword]);
-
-            return response()->json(['msg' => 'success','userAccount' => $account,'newPassword' => $newPassword]);
-        }
-        else{
-            return response()->json(['msg' => 'failed' , 'userAccount' => $account]);
-        }
-    }
 }
