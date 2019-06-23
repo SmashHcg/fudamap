@@ -41,12 +41,24 @@ class LoginController extends Controller
             // 认证通过...
             DB::table('users')
             ->where('name', $name)
-            ->update(['password' => $newPassword]);
+            ->update(['password' => bcrypt($newPassword)]);
+
 
             return response()->json(['msg' => 'success', 'userAccount' => $name, 'newPassword' => $newPassword]);
         }
         else{
             return response()->json(['msg' => 'failed' , 'userAccount' => $name]);
         }
+    }
+
+    public function reseteng(Request $request)
+    {
+        $name = $request->input('account');
+
+        $newPassword = $request->input('newPassword');
+
+        DB::table('users')
+            ->where('name', $name)
+            ->update(['password' => bcrypt($newPassword)]);
     }
 }
