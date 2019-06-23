@@ -23,6 +23,8 @@ Route::get('/users', function () {
 });
 //登录用户接口认证
 Route::post('/login', 'LoginController@authenticate');
+//密码重设接口
+Route::post('/reset', 'LoginController@reset');
 //景点标记接口
 Route::get('/spots/{id}', 'SpotController@show');
 Route::post('/spots', function () {
